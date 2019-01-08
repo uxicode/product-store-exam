@@ -6,9 +6,7 @@ import {StoreModule} from './store/store.module';
 import {ModelModule} from './model/model.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     ModelModule,
