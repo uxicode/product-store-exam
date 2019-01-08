@@ -2,6 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.4.
 
+npm install bootstrap@4.1.1
+
+npm install font-awesome@4.7.0
+
+npm install --save-dev json-server@0.12.1
+
+npm install --save-dev jsonwebtoken@8.1.1
+
+스포츠 상품 카드 리스트 만들기 예제이다. 
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
