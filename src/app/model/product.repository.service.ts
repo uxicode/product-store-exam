@@ -19,7 +19,7 @@ export class ProductRepositoryService {
   }
   getProducts(category:string=null):Product[]{
     return this.products.filter(p=> {
-      console.log( 'category='+category )
+      // console.log( 'category='+category )
       return category == null || category == p.category
     });
   }

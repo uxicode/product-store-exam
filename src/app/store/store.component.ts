@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductRepositoryService} from '../model/product.repository.service';
 import {Product} from '../model/product.model';
+import {CartService} from '../model/cart.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-store',
@@ -11,7 +13,7 @@ export class StoreComponent implements OnInit {
   public selectedCategory=null;
   public productsPerPage=4;
   public selectedPage=1;
-  constructor(private repository:ProductRepositoryService) { }
+  constructor(private repository:ProductRepositoryService, private cart:CartService, private router:Router) { }
 
   ngOnInit() {
   }
@@ -28,6 +30,7 @@ export class StoreComponent implements OnInit {
 
   changeCategory(newCategory?:string){
     this.selectedCategory=newCategory;
+    this.changePage(1);
   }
 
   changePage(newPage: number) {
@@ -51,7 +54,13 @@ export class StoreComponent implements OnInit {
       });
   }*/
   get pageCount(): number {
-    return Math.ceil( this.repository.getProducts(this.selectedCategory).length / this.productsPerPage )
+    return Math.ceil(this.repository
+      .getProducts(this.selectedCategory).length / this.productsPerPage)
+  }
+
+  addProductToCart(product: Product) {
+    this.cart.addLine(product);
+    this.router.navigateByUrl('/cart');
   }
 
 }
