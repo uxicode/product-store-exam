@@ -7,13 +7,15 @@ import {StoreComponent} from './store/store.component';
 export class StoreFirstGuard implements CanActivate {
   private firstNavigation=true;
   constructor(private router:Router){}
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    this.firstNavigation=false;
-    if(route.component!=StoreComponent){
-      this.router.navigateByUrl('/');
-      return false;
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):  boolean {
+
+    if (this.firstNavigation) {
+      this.firstNavigation = false;
+      if (route.component != StoreComponent) {
+        this.router.navigateByUrl('/');
+        return false;
+      }
     }
     return true;
   }

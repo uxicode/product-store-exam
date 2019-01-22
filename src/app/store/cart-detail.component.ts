@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import {CartService} from '../model/cart.service';
 
 @Component({
   selector: 'app-cart-detail',
-  template: '<div><h3 class="bg-info p-1 text-white">Cart Detail Component</h3></div>'
+  templateUrl: './cart-detail.component.html'
 })
 export class CartDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(public cart:CartService) { }
 
   ngOnInit() {
   }

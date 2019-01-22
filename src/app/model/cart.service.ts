@@ -11,7 +11,7 @@ export class CartService {
 
   addLine(product:Product, quantity:number=1){
     let line=this.lines.find(line=>line.product.id == product.id );
-    console.log('line=', line, this.lines )
+
     if(line!=undefined){
       line.quantity +=quantity;
     }else{
@@ -21,6 +21,7 @@ export class CartService {
   }
   updateQuantity(product:Product, quantity:number){
     let line = this.lines.find(line => line.product.id == product.id);
+    console.log('line=', line, this.lines );
     if(line!=undefined){
       line.quantity=Number(quantity);
     }
